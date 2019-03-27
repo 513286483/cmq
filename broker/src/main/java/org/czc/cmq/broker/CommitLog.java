@@ -15,4 +15,5 @@ public class CommitLog {
     public static void init() {
 
     }
+
 }
