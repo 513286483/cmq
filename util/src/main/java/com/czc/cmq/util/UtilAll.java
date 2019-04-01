@@ -19,10 +19,7 @@ package com.czc.cmq.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.net.Inet4Address;
@@ -484,5 +481,34 @@ public class UtilAll {
             }
             file.delete();
         }
+    }
+
+    public static String readAllFile(File file) {
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+            byte[] arr = new byte[(int) file.length()];
+            int res = fileInputStream.read(arr, 0, arr.length);
+            if (res < arr.length)
+                return null;
+            return new String(arr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) throws IOException {
+        File file = new File("C:\\Users\\chenzhichao\\Desktop\\kk.txt");
+        System.out.println(readAllFile(file));
+        System.out.println(file.getCanonicalPath());
     }
 }

@@ -17,6 +17,7 @@ public class Config {
     private static Logger logger = LoggerFactory.getLogger(Config.class);
     public static volatile String homeDir;
     public static final String DEFAULT_DIR = "./";
+    public static final int MSG_SIZE = 20;
     public void loadConfig() throws IOException {
         Properties properties = new Properties();
         InputStream inputStream = Main.class.getResourceAsStream("/broker.properties");
