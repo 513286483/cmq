@@ -11,6 +11,7 @@
     <module>producer</module>
     <module>common</module>
     <module>util</module>
+      <module>cmqremote</module>
   </modules>
   <packaging>pom</packaging>
 
