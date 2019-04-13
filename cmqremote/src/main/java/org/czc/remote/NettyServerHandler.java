@@ -14,6 +14,9 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         TransferMsg msg1 = (TransferMsg)msg;
+        msg1.setType(1);
+        msg1.setBody("456".getBytes());
+        ctx.writeAndFlush(msg1);
     }
 
     @Override
