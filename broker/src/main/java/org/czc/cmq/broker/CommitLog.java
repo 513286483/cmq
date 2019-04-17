@@ -30,8 +30,7 @@ public class CommitLog {
         boolean isNewFile = false;
         try {
             if (!file.exists()) {
-                file.createNewFile();
-                isNewFile = true;
+                isNewFile = file.createNewFile();
             }
         } catch (Throwable t) {
             logger.error("create log file failed!", t);
@@ -55,6 +54,8 @@ public class CommitLog {
                         buffer.reset();
                         break;
                     }
+                } else {
+                    break;
                 }
             }
         }
